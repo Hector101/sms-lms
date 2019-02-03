@@ -1,15 +1,13 @@
 
 # SMS Management API
 
-**Collect the population details of residents in different locations**
+**Create an SMS management API to create and manage text message transaction between users**
 
 ## Technologies Used
 - **Node.js** -- Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine, used to write server side application.
 - **ExpressJS** -- A Framework built on top of Node.js for building flexible and scalable web applications.
 - **GraphQL** -- GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 - **PostgresQL** -- PostgreSQL is a powerful, open source object-relational database system with over 30 years of active development that has earned it a strong reputation for reliability, feature robustness, and performance.
-- **Jest** -- Jest is a delightful JavaScript Testing Framework with a focus on simplicity
-- **Supertest** -- Module for testing node.js HTTP servers using a fluent API.
 
 ## API Documentation
 A detailed API documentation for the application can be found. [here](https://sms-lms.herokuapp.com)
