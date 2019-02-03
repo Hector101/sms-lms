@@ -12,46 +12,122 @@
 - **Supertest** -- Module for testing node.js HTTP servers using a fluent API.
 
 ## API Documentation
-A detailed API documentation for the application can be found. [here](https://pms-lms.herokuapp.com)
+A detailed API documentation for the application can be found. [here](https://sms-lms.herokuapp.com)
 
 
 ## Tessting Application
-Visit the following [Link](https://pms-lms.herokuapp.com/graphql) to test the the following GraphQL Mutations (`createLocation`, `updateLocation`, `deleteLocation`) and GraphQL Query (`locationsPopulation`).
+Visit the following [Link](https://sms-lms.herokuapp.com/graphql) to test all functionalities, refer to the Documentation above.
 
 ##### Examples:
 ```
 query {
-  locationsPopulation {
+  
+   contact(id: 1) {
     id
     name
-    malePopulation
-    femalePopulation
-    totalPopulation
-    parentId
+    phoneNumber
+  }
+
+  allContacts {
+    id
+    name
+    phoneNumber
+  }
+  
+  sentMessages(senderId: 5) {
+    id
+    sender {
+      id
+      name
+      phoneNumber
+    }
+    receiver {
+      id
+      name
+      phoneNumber
+    }
+    message
+    status
+    createdAt
+    updatedAt
+  }
+  
+  receivedMessages(receiverId: 6) {
+    id
+    sender {
+      id
+      name
+      phoneNumber
+    }
+    receiver {
+      id
+      name
+      phoneNumber
+    }
+    message
+    status
+    createdAt
+    updatedAt
   }
 }
 ```
 
 ```
 mutation {
-  createLocation(name: "Anthony", malePopulation: 10, femalePopulation: 15, parentId: "Optional ID") {
+  createContact(name: "Hector", phoneNumber: "0802223277") {
     id
-    malePopulation
-    femalePopulation
-    totalPopulation
-    parentId
+    name
+    phoneNumber
   }
-  updateLocation(id: "Existing location population ID Eg: e9067445-7c1c-4ccd-b36f-2ccd556ac163", name: "Ilupeju", malePopulation: 10) {
+  
+  updateContact(id: 4, phoneNumber: "0907867678") {
+    id
+    name
+    phoneNumber
+  }
+  
+  deleteContact(id: 13) {
     message
   }
-  deleteLocation(id: "Existing location population ID Eg: e9067445-7c1c-4ccd-b36f-2ccd556ac163") {
+  
+  sendMessage(senderId: 13, receiverId: 12, message: "Good and you?") {
+    sender {
+      id
+      name
+      phoneNumber,
+    }
+    receiver {
+      id
+      name
+      phoneNumber
+    }
+    message
+    createdAt
+    updatedAt
+  }
+  
+  readMessage(messageId: 2) {
+    sender {
+      id
+      name
+      phoneNumber,
+    }
+    receiver {
+      id
+      name
+      phoneNumber
+    }
+    message
+    status
+    createdAt
+    updatedAt
+  }
+  
+  deleteMessage(messageId: 9) {
     message
   }
 }
 ```
-
-
-
 
 ## Prerequisites
 The following should be installed in your machine
