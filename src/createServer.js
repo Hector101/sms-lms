@@ -30,16 +30,14 @@ const graphqlRequest = (req) => {
 };
 
 export async function saveNewGraphqlSchema () {
-  if (process.env.NODE_ENV === 'development') {
-    let schemaJson = await graphql.graphql(graphqlSchema, graphqlUtilities.introspectionQuery);
-    let graphQLSchema = graphqlUtilities.buildClientSchema(schemaJson.data);
+  let schemaJson = await graphql.graphql(graphqlSchema, graphqlUtilities.introspectionQuery);
+  let graphQLSchema = graphqlUtilities.buildClientSchema(schemaJson.data);
 
-    // Save schema.json for IDE/tools
-    fs.writeFileSync(path.resolve(__dirname, path.join('..', 'schema.json')), JSON.stringify(schemaJson, null, 2));
+  // Save schema.json for IDE/tools
+  fs.writeFileSync('./schema.json', JSON.stringify(schemaJson, null, 2));
 
-    // Save user readable schema.graphql
-    fs.writeFileSync(path.resolve(__dirname, path.join('..', 'schema.graphql')), graphqlUtilities.printSchema(graphQLSchema));
-  }
+  // Save user readable schema.graphql
+  fs.writeFileSync('./schema.graphql', graphqlUtilities.printSchema(graphQLSchema));
 }
 
 export const createApp =  () => {

@@ -9,10 +9,7 @@
     "start:server": "babel-node src/startServer.js",
     "dev": "cross-env NODE_ENV=development nodemon --exec npm run start:server",
     "dev:migration": "cross-env NODE_ENV=development sequelize db:migrate",
-    "test:migration": "cross-env NODE_ENV=test sequelize db:migrate",
-    "dev:undoall:migration": "cross-env NODE_ENV=development sequelize db:migrate:undo:all",
-    "test:undoall:migration": "cross-env NODE_ENV=test sequelize db:migrate:undo:all",
-    "coverage": "cross-env NODE_ENV=test jest --coverage --forceExit"
+    "dev:undoall:migration": "cross-env NODE_ENV=development sequelize db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
